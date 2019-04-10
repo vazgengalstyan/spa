@@ -1,0 +1,113 @@
+[
+	{
+		"id": "1",
+		"name": "Парикмахерские",
+		"img": "http://www.fainaidea.com/wp-content/uploads/2016/04/beauty-salon.jpg",
+		"categories": [
+			{
+				"id": "1.1",
+				"name": "УХОДЫ",
+				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec",
+				"img": "https://www.loreal-paris.ru/-/media/images/inside-lop/povr-volosi_1920823.ashx",
+				"list": [
+					{
+						"id": "1.1.1",
+						"name": "REDKEN",
+						"price": "500"
+					},
+					{
+						"id": "1.1.2",
+						"name": "NAPURA",
+						"price": "1500"
+					},
+					{
+						"id": "1.1.3",
+						"name": "GOLDWELL",
+						"price": "1200"
+					},
+					{
+						"id": "1.1.4",
+						"name": "KERASTASE",
+						"price": "1850"
+					}
+				]
+			},
+			{
+				"id": "1.2",
+				"name": "ОКРАШИВАНИЯ",
+				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec",
+				"img": "https://www.kleo.ru/img/articles/1506627084_41.jpg",
+				"list": []
+			},
+			{
+				"id": "1.3",
+				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec",
+				"name": "СОПУТСВУЮЩИЕ УСЛУГИ",
+				"img": "https://www.bellicapelli.ru/images/headers/header_bg.jpg",
+				"list": []
+			},
+			{
+				"id": "1.4",
+				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec",
+				"name": "МАЛЕНТКИЕ ЛЕДИ И ДЖЕНТЕЛЬМЕНЫ",
+				"img": "https://www.stylenews.ru/wp-content/uploads/2016/05/kidshaircut1-1.jpg",
+				"list": []
+			},
+			{
+				"id": "1.5",
+				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec",
+				"name": "ДЛЯ МУЖЧИН",
+				"img": "https://netstorage-nur.akamaized.net/images/pogudx5i60g6ov50c.jpg",
+				"list": []
+			}
+		]
+	},
+	{
+		"id": "2",
+		"name": "Маникюрный сервис",
+		"img": "https://tv.ua/img/article/1083/84_main.jpg",
+		"categories": []
+	},
+	{
+		"id": "3",
+		"name": "Эстетическая косметология",
+		"img": "https://avatars.mds.yandex.net/get-zen_doc/168279/pub_5bb77342aeb34f00a931677a_5bb77383ad289e00ac6bfc54/scale_600",
+		"categories": []
+	},
+	{
+		"id": "4",
+		"name": "Косметология",
+		"img": "http://aquamarineresort.ru/upload/iblock/ca9/ca98f58c8d24bebd8a57db6932480e25.jpg",
+		"categories": []
+	},
+	{
+		"id": "5",
+		"name": "Массаж и спа",
+		"img": "https://defst1.gilmon.ru/resources/fs/i/shares/65/63/6563_large_1552403710.jpg",
+		"categories": []
+	},
+	{
+		"id": "6",
+		"name": "Хамам",
+		"img": "http://www.sauna.kiev.ua/wp-content/uploads/2019/01/cam-hotel-hamam-nedir.jpg",
+		"categories": []
+	},
+	{
+		"id": "7",
+		"name": "Зона йоги",
+		"img": "http://cisgoa.com/wp-content/uploads/2016/02/965714.png",
+		"categories": []
+	},
+	{
+		"id": "8",
+		"name": "Пилитесь",
+		"img": "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBfc9nu.jpg",
+		"categories": []
+	},
+	{
+		"id": "9",
+		"name": "Стречинг",
+		"img": "http://in-fitness.ru/images/stati/stretching.jpg",
+		"categories": []
+	}
+]
