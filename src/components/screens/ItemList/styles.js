@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
     contentContainer: {
         flex: 1,
         backgroundColor: 'rgb(245,252,255)',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginTop: 10
     },
     imageContainer: {
         width: '30%',
@@ -17,7 +18,14 @@ const styles = StyleSheet.create({
     },
     imgShadowContainer: {
         backgroundColor: 'rgb(255,255,255)',
-        elevation: 5
+        elevation: 5,
+        shadowColor: "rgb(0,0,0)",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 3.84,
     },
     listContainer: {
         width: '70%',

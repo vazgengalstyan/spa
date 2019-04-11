@@ -19,7 +19,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(145,227,250)',
         width: '30%',
         height: '100%',
-        elevation: 5
+        elevation: 5,
+        shadowColor: "rgb(0,0,0)",
+        shadowOffset: {
+            width: 2,
+            height: 2,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 3.84,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     buttonText: {
         textAlign: 'center',

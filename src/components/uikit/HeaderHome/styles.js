@@ -6,6 +6,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgb(0,0,0)',
+        shadowColor: "rgb(0,0,0)",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 3.84,
         elevation: 5
     },
     basketContainer: {

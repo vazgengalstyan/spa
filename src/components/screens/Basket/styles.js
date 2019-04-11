@@ -10,7 +10,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgb(0,0,0)',
-        elevation: 5
+        elevation: 5,
+        shadowColor: "rgb(0,0,0)",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 3.84,
     },
     goBackIconContainer: {
         width: 60,
@@ -78,11 +85,18 @@ const styles = StyleSheet.create({
     },
     buttonOk: {
         width: '20%',
-        height: '90%',
+        height: '50%',
         backgroundColor: 'rgb(75,181,67)',
         justifyContent: 'center',
         alignItems: 'center',
-        elevation: 3
+        elevation: 3,
+        shadowColor: "rgb(0,0,0)",
+        shadowOffset: {
+            width: 2,
+            height: 2,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 3.84,
     }
 });
 

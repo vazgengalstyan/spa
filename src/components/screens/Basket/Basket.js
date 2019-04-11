@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {unCheckItem,clearDataSelect} from "../../../actions";
 import {View,Image, TouchableOpacity,Alert,Text,ScrollView} from 'react-native'
 import styles from './styles'
-import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
+import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons'
 
 class Basket extends Component {
 

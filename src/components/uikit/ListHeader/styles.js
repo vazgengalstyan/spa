@@ -5,7 +5,14 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 80,
         backgroundColor: 'rgb(245,252,255)',
-        elevation: 5
+        elevation: 5,
+        shadowColor: "rgb(0,0,0)",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 3.84
     },
     backgroundImageStyle: {
         width: '100%',

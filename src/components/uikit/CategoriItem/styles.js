@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
         width: '45%',
         height: 220,
         backgroundColor: 'rgb(255,255,255)',
-        elevation: 5,
         margin: '2.5%'
     },
     backgroundImageStyle: {
@@ -20,9 +19,17 @@ const styles = StyleSheet.create({
         opacity: 1
     },
     imageBackground: {
+        shadowColor: 'rgb(0,0,0)',
+        shadowOffset: {
+            width: 5,
+            height: 2,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 3.84,
+        elevation: 5,
         width: '100%',
         height: '100%',
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: 'rgba(0,0,0,0.3)',
         justifyContent: 'center',
         alignItems: 'center'
     }
