@@ -26,7 +26,10 @@ class Home extends Component {
 
     }
 
-    synchronize = ()=>{
+    synchronize = async ()=>{
+        this.props.setDataStore([]);
+        const dirs = RNFetchBlob.fs.dirs;
+        await RNFetchBlob.fs.unlink(dirs.DocumentDir).then(() => { console.log("file is deleted") }).catch((err) => { console.log("err",err) });
 
         axios.get('http://spa.brainfors.am/api/get_data')
             .then(async (response)=>{
