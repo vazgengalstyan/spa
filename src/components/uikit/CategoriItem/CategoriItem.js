@@ -10,17 +10,21 @@ const CategoriItem = ({data,onPress})=>{
 
         <TouchableOpacity style={container} onPress={onPress}>
 
-            <ImageBackground source={{uri: data.img}}
-                             style={backgroundImageStyle}
-                             resizeMode={'cover'}
-            >
-                <View style={imageBackground}>
+            <View style={{elevation: 5, backgroundColor: 'rgb(0,0,0)'}}>
 
-                    <Text style={itemText}>{data.name}</Text>
+                <ImageBackground source={{uri: data.img}}
+                                 style={backgroundImageStyle}
+                                 resizeMode={'cover'}
+                >
+                    <View style={imageBackground}>
 
-                </View>
+                        <Text style={itemText}>{data.name}</Text>
 
-            </ImageBackground>
+                    </View>
+
+                </ImageBackground>
+
+            </View>
 
         </TouchableOpacity >
     )
