@@ -26,6 +26,7 @@ class Home extends Component {
 
     }
 
+
     synchronize = async ()=>{
 
         NetInfo.isConnected.fetch().then(isOnline=>{
