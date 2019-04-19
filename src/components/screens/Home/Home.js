@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
-import NetInfo from "@react-native-community/netinfo";
-import RNFetchBlob from "react-native-fetch-blob";
+import NetInfo from "@react-native-community/netinfo"
+import RNFetchBlob from "react-native-fetch-blob"
 import {setDataStore} from '../../../actions'
 import {connect} from 'react-redux'
-// import dataJson from '../../../../data/data.json'
 import axios from "axios"
-import {View,StatusBar,FlatList,AsyncStorage,Platform,Button} from 'react-native'
+import {View, StatusBar, FlatList, AsyncStorage, Platform, Alert, ActivityIndicator} from 'react-native'
 import {HeaderHome,CategoriItem} from '../../uikit'
 import styles from './styles'
+console.disableYellowBox = true;
 
 class Home extends Component {
 
@@ -27,32 +27,71 @@ class Home extends Component {
     }
 
     synchronize = async ()=>{
-        this.props.setDataStore([]);
-        const dirs = RNFetchBlob.fs.dirs;
-        await RNFetchBlob.fs.unlink(dirs.DocumentDir).then(() => { console.log("file is deleted") }).catch((err) => { console.log("err",err) });
 
-        axios.get('http://spa.brainfors.am/api/get_data')
-            .then(async (response)=>{
+        NetInfo.isConnected.fetch().then(isOnline=>{
 
-                await AsyncStorage.clear(async ()=>{
+            if(isOnline){
 
-                    let data = response.data;
-                    await this.saveImage(data).then(()=>{
+                NetInfo.getConnectionInfo().then(async (connection)=>{
 
-                        for(let i=0; i < data.length;  i++){
+                    if(connection.type === 'wifi'){
 
-                            AsyncStorage.setItem(i.toString(), JSON.stringify(data[i]));
+                        this.props.setDataStore([]);
+                        const dirs = RNFetchBlob.fs.dirs;
+                        await RNFetchBlob.fs.unlink(dirs.DocumentDir).then(() => { console.log("file is deleted") }).catch((err) => { console.log("err",err) });
 
-                        }
-                        this.props.setDataStore(data);
-                    })
+                        axios.get('http://spa.brainfors.am/api/get_data')
+                            .then(async (response)=>{
 
-                });
+                                await AsyncStorage.clear(async ()=>{
 
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+                                    let data = response.data;
+                                    await this.saveImage(data).then(()=>{
+
+                                        for(let i=0; i < data.length;  i++){
+
+                                            AsyncStorage.setItem(i.toString(), JSON.stringify(data[i]));
+
+                                        }
+                                        this.props.setDataStore(data);
+                                    })
+
+                                });
+
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+
+                    } else {
+
+                        Alert.alert(
+                            'Вы не подключены через WiFi.',
+                            '',
+                            [
+                                {text: 'ОК', onPress: () => {}},
+                            ],
+                            { cancelable: false }
+                        );
+
+                    }
+
+                })
+
+            }else {
+
+                Alert.alert(
+                    'Нет подключения к интернету.',
+                    '',
+                    [
+                        {text: 'ОК', onPress: () => {}},
+                    ],
+                    { cancelable: false }
+                );
+
+            }
+
+        });
 
     };
 
@@ -97,26 +136,42 @@ class Home extends Component {
 
         const {container} = styles;
         const {data,selectedItems} = this.props;
-
         return (
             <View style={container}>
 
                 <StatusBar hidden={true}/>
 
-                <HeaderHome data={selectedItems} basketPress={this.basketPress}/>
+                <HeaderHome
+                    data={selectedItems}
+                    basketPress={this.basketPress}
+                    synchronizePress={()=>{
 
-                <Button title={'test'} onPress={this.synchronize}/>
+                        Alert.alert(
+                            'Синхронизировать? ',
+                            'Это может занять несколько минут. Не отключаете интернет.',
+                            [
+                                {text: 'ОТМЕНА', onPress: () => {return false}, style: 'cancel'},
+                                {text: 'ОК', onPress: async () => {await this.synchronize();}},
+                            ],
+                            { cancelable: false }
+                        )
+
+                    }}/>
 
                 <FlatList
                     data={data}
                     numColumns={2}
                     renderItem={({item})=>{
                         return <CategoriItem data={item} onPress={()=>{this.categoryItemPress(item)}}/>
-                    }
-
-                      }
+                    }}
                     keyExtractor={(item, index) => index.toString()}
                 />
+
+                {!data.length && <View style={{width: '100%', height: '100%', justifyContent: 'center'}}>
+
+                    <ActivityIndicator size="large" color="rgb(0,0,0)" />
+
+                </View>}
 
             </View>
         );

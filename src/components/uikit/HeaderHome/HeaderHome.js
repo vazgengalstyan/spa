@@ -3,7 +3,7 @@ import {View ,Text,Image,TouchableOpacity} from 'react-native'
 import styles from './styles'
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 
-const HeaderHome = ({data,basketPress})=>{
+const HeaderHome = ({data,basketPress,synchronizePress})=>{
 
     const {container,basketContainer,IconBadge,BadgeText} = styles;
 
@@ -22,6 +22,12 @@ const HeaderHome = ({data,basketPress})=>{
                     <Text style={BadgeText}>{data.length}</Text>
 
                 </View>
+
+            </TouchableOpacity>
+
+            <TouchableOpacity style={[basketContainer,{left:30}]} onPress={synchronizePress}>
+
+                <MaterialIcons name="cached" size={35} color="rgb(128,128,128)" />
 
             </TouchableOpacity>
 
