@@ -4,12 +4,17 @@ import RNFetchBlob from "react-native-fetch-blob"
 import {setDataStore} from '../../../actions'
 import {connect} from 'react-redux'
 import axios from "axios"
-import {View, StatusBar, FlatList, AsyncStorage, Platform, Alert, ActivityIndicator} from 'react-native'
+import {View, StatusBar, FlatList, AsyncStorage, Platform, Alert, ActivityIndicator, Text} from 'react-native'
 import {HeaderHome,CategoriItem} from '../../uikit'
 import styles from './styles'
 console.disableYellowBox = true;
 
 class Home extends Component {
+
+    state = {
+        loader: false,
+        dataEmpty: false
+    };
 
     async componentDidMount(){
 
@@ -20,6 +25,9 @@ class Home extends Component {
                     let res = JSON.parse(store[i][1]);
                     data.push(res)
                 });
+                if(!data.length){
+                    this.setState({dataEmpty: true})
+                }
                 this.props.setDataStore(data);
             });
         });
@@ -37,9 +45,14 @@ class Home extends Component {
 
                     if(connection.type === 'wifi'){
 
+                        this.setState({loader: true})
                         this.props.setDataStore([]);
                         const dirs = RNFetchBlob.fs.dirs;
-                        await RNFetchBlob.fs.unlink(dirs.DocumentDir).then(() => { console.log("file is deleted") }).catch((err) => { console.log("err",err) });
+                        await RNFetchBlob.fs.unlink(dirs.DocumentDir).then(() => {
+                            console.log("file is deleted")
+                        }).catch((err) => {
+                            console.log("err",err)
+                        });
 
                         axios.get('http://spa.brainfors.am/api/get_data')
                             .then(async (response)=>{
@@ -55,6 +68,8 @@ class Home extends Component {
 
                                         }
                                         this.props.setDataStore(data);
+                                        console.log("synchronized successful")
+                                        this.setState({loader: false, dataEmpty: false})
                                     })
 
                                 });
@@ -135,8 +150,9 @@ class Home extends Component {
 
     render() {
 
-        const {container} = styles;
+        const {container,emptyDataContainer} = styles;
         const {data,selectedItems} = this.props;
+        const {loader,dataEmpty} = this.state;
         return (
             <View style={container}>
 
@@ -168,9 +184,15 @@ class Home extends Component {
                     keyExtractor={(item, index) => index.toString()}
                 />
 
-                {!data.length && <View style={{width: '100%', height: '100%', justifyContent: 'center'}}>
+                {loader && <View style={emptyDataContainer}>
 
                     <ActivityIndicator size="large" color="rgb(0,0,0)" />
+
+                </View>}
+
+                {dataEmpty && <View style={emptyDataContainer}>
+
+                    <Text style={{fontSize: 24, color: 'rgb(0,0,0)'}}>Сделайте синхронизацию.</Text>
 
                 </View>}
 
