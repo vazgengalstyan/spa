@@ -4,7 +4,7 @@ import RNFetchBlob from "react-native-fetch-blob"
 import {setDataStore} from '../../../actions'
 import {connect} from 'react-redux'
 import axios from "axios"
-import {View, StatusBar, FlatList, AsyncStorage, Platform, Alert, ActivityIndicator, Text} from 'react-native'
+import {View, StatusBar, FlatList,ImageBackground, AsyncStorage, Platform, Alert, ActivityIndicator, Text} from 'react-native'
 import {HeaderHome,CategoriItem} from '../../uikit'
 import styles from './styles'
 console.disableYellowBox = true;
@@ -154,7 +154,7 @@ class Home extends Component {
         const {data,selectedItems} = this.props;
         const {loader,dataEmpty} = this.state;
         return (
-            <View style={container}>
+            <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
 
                 <StatusBar hidden={true}/>
 
@@ -176,6 +176,7 @@ class Home extends Component {
                     }}/>
 
                 <FlatList
+                    style={{marginTop: -10}}
                     data={data}
                     numColumns={2}
                     renderItem={({item})=>{
@@ -196,7 +197,7 @@ class Home extends Component {
 
                 </View>}
 
-            </View>
+            </ImageBackground>
         );
 
     }

@@ -1,15 +1,17 @@
 import React from 'react'
-import {View, ImageBackground, TouchableOpacity, Text} from 'react-native'
+import {View, ImageBackground, TouchableOpacity, Text, Image} from 'react-native'
 import styles from './styles'
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 
 const ListHeader = ({data,goBackPress,selectedItems,basketPress})=>{
 
-    const {container,itemText,backgroundImageStyle,goBackIconContainer,imageBackground,basketContainer,IconBadge,BadgeText} = styles;
+    const {container,headerLine,itemText,backgroundImageStyle,goBackIconContainer,imageBackground,basketContainer,IconBadge,BadgeText} = styles;
 
     return (
 
         <View style={container}>
+
+            <Image source={require('../../../images/line.png')} resizeMode="cover" style={headerLine}/>
 
             <ImageBackground
                 source={{uri: data.img}}
@@ -19,7 +21,7 @@ const ListHeader = ({data,goBackPress,selectedItems,basketPress})=>{
 
                 <TouchableOpacity style={basketContainer} onPress={basketPress}>
 
-                    <MaterialIcons name="shopping-cart" size={35} color="rgb(128,128,128)" />
+                    <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c" />
 
                     <View style={IconBadge}>
 
@@ -37,7 +39,7 @@ const ListHeader = ({data,goBackPress,selectedItems,basketPress})=>{
 
                 <TouchableOpacity onPress={goBackPress} style={goBackIconContainer}>
 
-                    <MaterialIcons name="arrow-back" size={35} color="rgb(0,0,0)" />
+                    <MaterialIcons name="arrow-back" size={35} color="#4c3d0c" />
 
                 </TouchableOpacity>
 

@@ -2,10 +2,10 @@ import {StyleSheet} from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
-        height: 80,
+        height: 85,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgb(0,0,0)',
+        backgroundColor: 'transparent',
         shadowColor: "rgb(0,0,0)",
         shadowOffset: {
             width: 0,
@@ -16,9 +16,9 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     basketContainer: {
-        width: 60,
-        height: 60,
-        backgroundColor: 'rgb(245,252,255)',
+        width: 50,
+        height: 50,
+        backgroundColor: 'rgb(193,167,94)',
         position: 'absolute',
         zIndex: 10,
         right: 30,
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
         position:'absolute',
         top:1,
         right:1,
-        minWidth:20,
-        height:20,
+        width:15,
+        height:15,
         borderRadius:15,
         alignItems: 'center',
         justifyContent: 'center',

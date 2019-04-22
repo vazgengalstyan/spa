@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: 80,
-        backgroundColor: 'rgb(245,252,255)',
+        backgroundColor: 'transparent',
         elevation: 5,
         shadowColor: "rgb(0,0,0)",
         shadowOffset: {
@@ -19,9 +19,9 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     goBackIconContainer: {
-        width: 60,
-        height: 60,
-        backgroundColor: 'rgb(245,252,255)',
+        width: 50,
+        height: 50,
+        backgroundColor: 'rgb(193,167,94)',
         position: 'absolute',
         zIndex: 10,
         left: 30,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     itemText: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: 'rgb(245,252,255)',
+        color: 'rgb(193,167,94)',
         opacity: 1
     },
     imageBackground: {
@@ -44,9 +44,9 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     basketContainer: {
-        width: 60,
-        height: 60,
-        backgroundColor: 'rgb(245,252,255)',
+        width: 50,
+        height: 50,
+        backgroundColor: 'rgb(193,167,94)',
         position: 'absolute',
         zIndex: 10,
         right: 30,
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
         position:'absolute',
         top:1,
         right:1,
-        minWidth:20,
-        height:20,
+        width:15,
+        height:15,
         borderRadius:15,
         alignItems: 'center',
         justifyContent: 'center',
@@ -70,6 +70,13 @@ const styles = StyleSheet.create({
         fontSize: 10,
         color: 'rgb(255,255,255)',
         fontWeight: 'bold'
+    },
+    headerLine: {
+        height: '15%',
+        width: '100%',
+        position: 'absolute',
+        zIndex: 10,
+        bottom: -6
     }
 });
 

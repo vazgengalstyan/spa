@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
-        backgroundColor: 'rgb(245,252,255)',
         flexDirection: 'row',
         marginTop: 10
     },
@@ -17,7 +16,7 @@ const styles = StyleSheet.create({
         paddingVertical: 80
     },
     imgShadowContainer: {
-        backgroundColor: 'rgb(255,255,255)',
+        backgroundColor: 'rgb(0,0,0)',
         elevation: 5,
         shadowColor: "rgb(0,0,0)",
         shadowOffset: {

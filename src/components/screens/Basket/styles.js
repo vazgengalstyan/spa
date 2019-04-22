@@ -6,11 +6,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(245,252,255)'
     },
     header: {
-        height: 80,
+        height: 85,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgb(0,0,0)',
-        elevation: 5,
+        backgroundColor: 'transparent',
         shadowColor: "rgb(0,0,0)",
         shadowOffset: {
             width: 0,
@@ -18,11 +17,12 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.8,
         shadowRadius: 3.84,
+        elevation: 5
     },
     goBackIconContainer: {
-        width: 60,
-        height: 60,
-        backgroundColor: 'rgb(245,252,255)',
+        width: 50,
+        height: 50,
+        backgroundColor: 'rgb(193,167,94)',
         position: 'absolute',
         zIndex: 10,
         left: 30,
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
     buttonOk: {
         width: '20%',
         height: '50%',
-        backgroundColor: 'rgb(75,181,67)',
+        backgroundColor: '#c1a75e',
+        borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 3,

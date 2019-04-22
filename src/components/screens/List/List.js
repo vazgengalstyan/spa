@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {FlatList, View} from 'react-native'
+import {FlatList, ImageBackground, View} from 'react-native'
 import {CategoriItem, ListHeader} from '../../uikit'
 import styles from './styles'
 
@@ -31,7 +31,7 @@ class List extends Component {
         const {selectedItems} = this.props;
 
         return (
-            <View style={container}>
+            <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
 
                 <ListHeader data={data} goBackPress={()=>{this.props.navigation.goBack()}} selectedItems={selectedItems} basketPress={this.basketPress}/>
 
@@ -46,7 +46,7 @@ class List extends Component {
                     keyExtractor={(item, index) => index.toString()}
                 />
 
-            </View>
+            </ImageBackground>
         );
 
     }

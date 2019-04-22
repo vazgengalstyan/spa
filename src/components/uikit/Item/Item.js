@@ -1,5 +1,5 @@
 import React from 'react'
-import {View ,Text,Image,TouchableOpacity} from 'react-native'
+import {View ,Text,TouchableOpacity} from 'react-native'
 import styles from './styles'
 
 const Item = ({data,onPress,selectedItems})=>{
@@ -19,11 +19,11 @@ const Item = ({data,onPress,selectedItems})=>{
             <Text style={itemText}>{data.price}руб.</Text>
 
             <TouchableOpacity
-                style={[buttonStyle,selected?{backgroundColor: 'rgb(75,181,67)'}:null]}
+                style={[buttonStyle,selected?{backgroundColor: 'rgb(0,0,0)'}:null]}
                 onPress={()=>{onPress(data,selected)}}
             >
 
-                <Text style={buttonText}>{selected?'Отмена':'Выбрать'}</Text>
+                <Text style={[buttonText,selected?{color: '#d3be7a'}:null]}>{selected?'Отмена':'Выбрать'}</Text>
 
             </TouchableOpacity>
 

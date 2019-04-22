@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {unCheckItem,clearDataSelect} from "../../../actions";
-import {View,Image, TouchableOpacity,Alert,Text,ScrollView} from 'react-native'
+import {View, Image, TouchableOpacity, Alert, Text, ScrollView, ImageBackground} from 'react-native'
 import styles from './styles'
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons'
 
@@ -58,31 +58,34 @@ class Basket extends Component {
         });
 
         return (
-            <View style={container}>
+            <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
 
-                <View style={header}>
+                <ImageBackground style={header} source={require('../../../images/header_bg.png')}>
 
-                    <Image source={require('../../../images/headerlogo.jpg')} resizeMode="contain" style={{height: '100%', width: '30%'}}/>
+                    <Image source={require('../../../images/logo.png')} resizeMode="contain" style={{height: '85%', width: '30%'}}/>
 
                     <TouchableOpacity onPress={()=>{this.props.navigation.goBack()}} style={goBackIconContainer}>
 
-                        <MaterialIcons name="arrow-back" size={35} color="rgb(0,0,0)" />
+                        <MaterialIcons name="arrow-back" size={35} color="#4c3d0c" />
 
                     </TouchableOpacity>
 
-                </View>
+                </ImageBackground >
 
                 <View style={content}>
 
                     <Text style={title}>Карзина</Text>
-                    <Text style={descriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec</Text>
+                    <Text style={descriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam
+                        velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit
+                        tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia
+                        ipsum quam nec dui. Quisque nec</Text>
 
-                    <View style={{flex: 1, width: '100%',justifyContent: 'space-between'}}>
+                    <View style={{flex: 1, width: '100%', justifyContent: 'space-between'}}>
 
                         <ScrollView style={listContainer}>
 
                             {
-                                selectedItems.map((item,index)=>
+                                selectedItems.map((item, index) =>
                                     <View key={index.toString()} style={itemStyle}>
 
                                         <View style={itemTextContainer}>
@@ -94,9 +97,11 @@ class Basket extends Component {
 
                                         <View style={itemButtonContainer}>
 
-                                            <TouchableOpacity onPress={()=>{this.props.unCheckItem(item)}}>
+                                            <TouchableOpacity onPress={() => {
+                                                this.props.unCheckItem(item)
+                                            }}>
 
-                                                <MaterialIcons name="close" size={35} color="rgb(254,0,0)" />
+                                                <MaterialIcons name="close" size={35} color="rgb(254,0,0)"/>
 
                                             </TouchableOpacity>
 
@@ -112,11 +117,11 @@ class Basket extends Component {
 
                             <TouchableOpacity style={buttonOk} onPress={this.clearDataSelect}>
 
-                                <Text style={{fontSize: 18, color: 'rgb(0,0,0)'}}>Ok</Text>
+                                <Text style={{ fontSize: 22, color: '#4c3d0c'}}>Ok</Text>
 
                             </TouchableOpacity>
 
-                            <Text style={[title,topBorder]}>Общая сумма {totalPrice} руб.</Text>
+                            <Text style={[title, topBorder]}>Общая сумма {totalPrice} руб.</Text>
 
                         </View>
 
@@ -124,7 +129,7 @@ class Basket extends Component {
 
                 </View>
 
-            </View>
+            </ImageBackground>
         );
 
     }

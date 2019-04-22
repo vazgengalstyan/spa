@@ -16,9 +16,10 @@ const styles = StyleSheet.create({
         color: 'rgb(0,0,0)'
     },
     buttonStyle: {
-        backgroundColor: 'rgb(145,227,250)',
+        backgroundColor: '#c1a75e',
         width: '30%',
         height: '100%',
+        borderRadius: 20,
         elevation: 5,
         shadowColor: "rgb(0,0,0)",
         shadowOffset: {
@@ -32,8 +33,8 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         textAlign: 'center',
-        fontSize: 32,
-        color: 'rgb(0,0,0)'
+        fontSize: 24,
+        color: '#4c3d0c'
     }
 });
 

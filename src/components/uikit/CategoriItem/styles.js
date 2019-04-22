@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 30,
         fontWeight: 'bold',
-        color: 'rgb(245,252,255)',
+        color: 'rgb(193,167,94)',
         opacity: 1
     },
     imageBackground: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
         width: '100%',
         height: '100%',
-        backgroundColor: 'rgba(0,0,0,0.3)',
+        backgroundColor: 'rgba(0,0,0,0.5)',
         justifyContent: 'center',
         alignItems: 'center'
     }

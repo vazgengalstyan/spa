@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {View, Image, Text, ScrollView} from 'react-native'
+import {View, Image, Text, ScrollView, ImageBackground} from 'react-native'
 import styles from './styles'
 import {ListHeader,Item} from "../../uikit";
 import {checkItem,unCheckItem} from "../../../actions";
@@ -39,7 +39,7 @@ class ItemList extends Component {
 
         return (
 
-            <View style={container}>
+            <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
 
                 <ListHeader data={data} goBackPress={()=>{this.props.navigation.goBack()}} selectedItems={selectedItems} basketPress={this.basketPress}/>
 
@@ -85,7 +85,7 @@ class ItemList extends Component {
 
                 </View>
 
-            </View>
+            </ImageBackground>
 
         );
 
