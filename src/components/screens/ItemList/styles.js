@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
         paddingVertical: 80
     },
     imgShadowContainer: {
+        marginTop: 10,
         backgroundColor: 'rgb(0,0,0)',
         elevation: 5,
         shadowColor: "rgb(0,0,0)",

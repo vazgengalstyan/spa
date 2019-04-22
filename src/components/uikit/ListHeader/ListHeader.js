@@ -8,44 +8,47 @@ const ListHeader = ({data,goBackPress,selectedItems,basketPress})=>{
     const {container,headerLine,itemText,backgroundImageStyle,goBackIconContainer,imageBackground,basketContainer,IconBadge,BadgeText} = styles;
 
     return (
+        <View style={{position: 'absolute', zIndex: 100, width: '100%'}}>
 
-        <View style={container}>
+            <View style={container}>
 
-            <Image source={require('../../../images/line.png')} resizeMode="cover" style={headerLine}/>
+                <Image source={require('../../../images/line.png')} resizeMode="cover" style={headerLine}/>
 
-            <ImageBackground
-                source={{uri: data.img}}
-                style={backgroundImageStyle}
-                resizeMode={'cover'}
-            >
+                <ImageBackground
+                    source={{uri: data.img}}
+                    style={backgroundImageStyle}
+                    resizeMode={'cover'}
+                >
 
-                <TouchableOpacity style={basketContainer} onPress={basketPress}>
+                    <TouchableOpacity style={basketContainer} onPress={basketPress}>
 
-                    <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c" />
+                        <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c" />
 
-                    <View style={IconBadge}>
+                        <View style={IconBadge}>
 
-                        <Text style={BadgeText}>{selectedItems.length}</Text>
+                            <Text style={BadgeText}>{selectedItems.length}</Text>
+
+                        </View>
+
+                    </TouchableOpacity>
+
+                    <View style={imageBackground}>
+
+                        <Text style={itemText}>{data.name}</Text>
 
                     </View>
 
-                </TouchableOpacity>
+                    <TouchableOpacity onPress={goBackPress} style={goBackIconContainer}>
 
-                <View style={imageBackground}>
+                        <MaterialIcons name="arrow-back" size={35} color="#4c3d0c" />
 
-                    <Text style={itemText}>{data.name}</Text>
+                    </TouchableOpacity>
 
-                </View>
+                </ImageBackground>
 
-                <TouchableOpacity onPress={goBackPress} style={goBackIconContainer}>
+            </View>
 
-                    <MaterialIcons name="arrow-back" size={35} color="#4c3d0c" />
-
-                </TouchableOpacity>
-
-            </ImageBackground>
-
-        </View >
+        </View>
     )
 
 };

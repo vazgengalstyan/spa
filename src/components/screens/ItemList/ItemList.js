@@ -59,7 +59,7 @@ class ItemList extends Component {
 
                         <View style={listContentContainer}>
 
-                            <ScrollView>
+                            <ScrollView style={{marginTop: 50}}>
 
                                 {
                                     data.list.map((item,index)=><Item

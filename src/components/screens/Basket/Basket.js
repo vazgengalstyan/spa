@@ -75,6 +75,7 @@ class Basket extends Component {
                 <View style={content}>
 
                     <Text style={title}>Карзина</Text>
+
                     <Text style={descriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam
                         velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit
                         tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia

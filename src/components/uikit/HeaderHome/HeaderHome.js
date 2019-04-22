@@ -9,29 +9,33 @@ const HeaderHome = ({data,basketPress,synchronizePress})=>{
 
     return (
 
-        <ImageBackground style={container} source={require('../../../images/header_bg.png')}>
+        <View style={{position: 'absolute', zIndex: 100, width: '100%'}}>
 
-            <Image source={require('../../../images/logo.png')} resizeMode="contain" style={{height: '85%', width: '30%'}}/>
+            <ImageBackground style={container} source={require('../../../images/header_bg.png')}>
 
-            <TouchableOpacity style={basketContainer} onPress={basketPress}>
+                <Image source={require('../../../images/logo.png')} resizeMode="contain" style={{height: '85%', width: '30%'}}/>
 
-                <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c" />
+                <TouchableOpacity style={basketContainer} onPress={basketPress}>
 
-                <View style={IconBadge}>
+                    <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c" />
 
-                    <Text style={BadgeText}>{data.length}</Text>
+                    <View style={IconBadge}>
 
-                </View>
+                        <Text style={BadgeText}>{data.length}</Text>
 
-            </TouchableOpacity>
+                    </View>
 
-            <TouchableOpacity style={[basketContainer,{left:30}]} onPress={synchronizePress}>
+                </TouchableOpacity>
 
-                <MaterialIcons name="cached" size={35} color="#4c3d0c" />
+                <TouchableOpacity style={[basketContainer,{left:30}]} onPress={synchronizePress}>
 
-            </TouchableOpacity>
+                    <MaterialIcons name="cached" size={35} color="#4c3d0c" />
 
-        </ImageBackground >
+                </TouchableOpacity>
+
+            </ImageBackground>
+
+        </View>
     )
 
 };
