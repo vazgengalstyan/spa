@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     descriptionText: {
+		textAlign: 'center',
         color: 'rgb(0,0,0)',
         marginTop: 10,
         marginHorizontal: 20,
