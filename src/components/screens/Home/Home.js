@@ -176,7 +176,7 @@ class Home extends Component {
                     }}/>
 
                 <FlatList
-                    style={{marginTop: 80}}
+                    style={{marginTop: 80,width: '100%'}}
                     data={data}
                     numColumns={2}
                     renderItem={({item})=>{

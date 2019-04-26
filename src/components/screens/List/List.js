@@ -36,7 +36,7 @@ class List extends Component {
                 <ListHeader data={data} goBackPress={()=>{this.props.navigation.goBack()}} selectedItems={selectedItems} basketPress={this.basketPress}/>
 
                 <FlatList
-                    style={{marginTop: 80}}
+                    style={{marginTop: 80,width: '100%'}}
                     data={data.categories}
                     numColumns={2}
                     renderItem={({item})=>{
