@@ -151,7 +151,7 @@ class Home extends Component {
     render() {
 
         const {container,emptyDataContainer} = styles;
-        const {data,selectedItems} = this.props;
+        const {data} = this.props;
         const {loader,dataEmpty} = this.state;
         return (
             <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
@@ -159,7 +159,6 @@ class Home extends Component {
                 <StatusBar hidden={true}/>
 
                 <HeaderHome
-                    data={selectedItems}
                     basketPress={this.basketPress}
                     synchronizePress={()=>{
 
@@ -205,8 +204,7 @@ class Home extends Component {
 
 const mapStateToProps = store =>{
     return {
-        ...store.data,
-        ...store.selectedItems
+        ...store.data
     }
 };
 

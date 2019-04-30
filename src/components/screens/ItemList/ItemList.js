@@ -41,7 +41,7 @@ class ItemList extends Component {
 
             <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
 
-                <ListHeader data={data} goBackPress={()=>{this.props.navigation.goBack()}} selectedItems={selectedItems} basketPress={this.basketPress}/>
+                <ListHeader data={data} goBackPress={()=>{this.props.navigation.goBack()}} basketPress={this.basketPress}/>
 
                 <View style={contentContainer}>
 
@@ -66,6 +66,7 @@ class ItemList extends Component {
                                         data={item}
                                         onPress={this.checkItem}
                                         selectedItems={selectedItems}
+                                        selected={selectedItems.map(function(e) { return e.id; }).indexOf(item.id)>-1}
                                         key={index.toString()}
                                     />)
                                 }

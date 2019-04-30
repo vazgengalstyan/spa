@@ -1,43 +1,55 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {View ,Text,Image,TouchableOpacity,ImageBackground} from 'react-native'
 import styles from './styles'
-import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
+import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons'
+import {connect} from 'react-redux'
 
-const HeaderHome = ({data,basketPress,synchronizePress})=>{
+class HeaderHome extends Component {
 
-    const {container,basketContainer,IconBadge,BadgeText} = styles;
+    render() {
 
-    return (
+        const {container, basketContainer, IconBadge, BadgeText} = styles;
+        const {selectedItems,basketPress,synchronizePress} = this.props;
 
-        <View style={{position: 'absolute', zIndex: 100, width: '100%'}}>
+        return (
 
-            <ImageBackground style={container} source={require('../../../images/header_bg.png')}>
+            <View style={{position: 'absolute', zIndex: 100, width: '100%'}}>
 
-                <Image source={require('../../../images/logo.png')} resizeMode="contain" style={{height: '85%', width: '30%'}}/>
+                <ImageBackground style={container} source={require('../../../images/header_bg.png')}>
 
-                <TouchableOpacity style={basketContainer} onPress={basketPress}>
+                    <Image source={require('../../../images/logo.png')} resizeMode="contain"
+                           style={{height: '85%', width: '30%'}}/>
 
-                    <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c" />
+                    <TouchableOpacity style={basketContainer} onPress={basketPress}>
 
-                    <View style={IconBadge}>
+                        <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c"/>
 
-                        <Text style={BadgeText}>{data.length}</Text>
+                        <View style={IconBadge}>
 
-                    </View>
+                            <Text style={BadgeText}>{selectedItems.length}</Text>
 
-                </TouchableOpacity>
+                        </View>
 
-                <TouchableOpacity style={[basketContainer,{left:30}]} onPress={synchronizePress}>
+                    </TouchableOpacity>
 
-                    <MaterialIcons name="cached" size={35} color="#4c3d0c" />
+                    <TouchableOpacity style={[basketContainer, {left: 30}]} onPress={synchronizePress}>
 
-                </TouchableOpacity>
+                        <MaterialIcons name="cached" size={35} color="#4c3d0c"/>
 
-            </ImageBackground>
+                    </TouchableOpacity>
 
-        </View>
-    )
+                </ImageBackground>
 
+            </View>
+        )
+
+    };
+}
+
+const mapStateToProps = store =>{
+    return {
+        selectedItems:  store.data.selectedItems
+    }
 };
 
-export {HeaderHome}
+export default connect(mapStateToProps)(HeaderHome);
