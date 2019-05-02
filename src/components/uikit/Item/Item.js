@@ -2,7 +2,7 @@ import React from 'react'
 import {View ,Text,TouchableOpacity} from 'react-native'
 import styles from './styles'
 
-const Item = ({data,onPress,selectedItems,selected})=>{
+const Item = ({data,onPress,selected})=>{
 
     const {container,itemText,buttonStyle,buttonText} = styles;
 

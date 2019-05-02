@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {FlatList, ImageBackground, View} from 'react-native'
+import {FlatList, ImageBackground} from 'react-native'
 import {CategoriItem, ListHeader} from '../../uikit'
 import styles from './styles'
 

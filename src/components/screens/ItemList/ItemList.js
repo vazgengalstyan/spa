@@ -65,7 +65,6 @@ class ItemList extends Component {
                                     data.list.map((item,index)=><Item
                                         data={item}
                                         onPress={this.checkItem}
-                                        selectedItems={selectedItems}
                                         selected={selectedItems.map(function(e) { return e.id; }).indexOf(item.id)>-1}
                                         key={index.toString()}
                                     />)
