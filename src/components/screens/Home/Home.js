@@ -23,7 +23,7 @@ class Home extends Component {
     render() {
 
         const {container,emptyDataContainer} = styles;
-        const {data,selectedItems,homeLoader} = this.props;
+        const {data,homeLoader} = this.props;
 
         return (
             <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
@@ -31,7 +31,6 @@ class Home extends Component {
                 <StatusBar hidden={true}/>
 
                 <HeaderHome
-                    data={selectedItems}
                     basketPress={()=>{this.props.navigation.navigate('Basket')}}
                     synchronizePress={()=>{
 
@@ -78,7 +77,6 @@ class Home extends Component {
 const mapStateToProps = store =>{
     return {
         ...store.data,
-        ...store.selectedItems,
         ...store.homeLoader
     }
 };

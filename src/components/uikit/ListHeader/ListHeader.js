@@ -1,56 +1,67 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {View, ImageBackground, TouchableOpacity, Text, Image} from 'react-native'
 import styles from './styles'
-import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
+import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons'
+import {connect} from 'react-redux'
 
-const ListHeader = ({data,goBackPress,selectedItems,basketPress})=>{
+class ListHeader extends Component {
 
-    const {container,headerLine,itemText,backgroundImageStyle,goBackIconContainer,imageBackground,basketContainer,IconBadge,BadgeText} = styles;
+    render() {
 
-    return (
-        <View style={{position: 'absolute', zIndex: 100, width: '100%'}}>
+        const {container, headerLine, itemText, backgroundImageStyle, goBackIconContainer, imageBackground, basketContainer, IconBadge, BadgeText} = styles;
+        const {data,goBackPress,selectedItems,basketPress} = this.props;
 
-            <View style={container}>
+        return (
+            <View style={{position: 'absolute', zIndex: 100, width: '100%'}}>
 
-                <Image source={require('../../../images/line.png')} resizeMode="cover" style={headerLine}/>
+                <View style={container}>
 
-                <ImageBackground
-                    source={{uri: data.img}}
-                    style={backgroundImageStyle}
-                    resizeMode={'cover'}
-                >
+                    <Image source={require('../../../images/line.png')} resizeMode="cover" style={headerLine}/>
 
-                    <TouchableOpacity style={basketContainer} onPress={basketPress}>
+                    <ImageBackground
+                        source={{uri: data.img}}
+                        style={backgroundImageStyle}
+                        resizeMode={'cover'}
+                    >
 
-                        <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c" />
+                        <TouchableOpacity style={basketContainer} onPress={basketPress}>
 
-                        <View style={IconBadge}>
+                            <MaterialIcons name="shopping-cart" size={35} color="#4c3d0c"/>
 
-                            <Text style={BadgeText}>{selectedItems.length}</Text>
+                            <View style={IconBadge}>
+
+                                <Text style={BadgeText}>{selectedItems.length}</Text>
+
+                            </View>
+
+                        </TouchableOpacity>
+
+                        <View style={imageBackground}>
+
+                            <Text style={itemText}>{data.name}</Text>
 
                         </View>
 
-                    </TouchableOpacity>
+                        <TouchableOpacity onPress={goBackPress} style={goBackIconContainer}>
 
-                    <View style={imageBackground}>
+                            <MaterialIcons name="arrow-back" size={35} color="#4c3d0c"/>
 
-                        <Text style={itemText}>{data.name}</Text>
+                        </TouchableOpacity>
 
-                    </View>
+                    </ImageBackground>
 
-                    <TouchableOpacity onPress={goBackPress} style={goBackIconContainer}>
-
-                        <MaterialIcons name="arrow-back" size={35} color="#4c3d0c" />
-
-                    </TouchableOpacity>
-
-                </ImageBackground>
+                </View>
 
             </View>
+        )
 
-        </View>
-    )
+    };
+}
 
+const mapStateToProps = store =>{
+    return {
+        selectedItems:  store.data.selectedItems
+    }
 };
 
-export {ListHeader}
+export default connect(mapStateToProps)(ListHeader);

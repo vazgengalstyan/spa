@@ -2,13 +2,9 @@ import React from 'react'
 import {View ,Text,TouchableOpacity} from 'react-native'
 import styles from './styles'
 
-const Item = ({data,onPress,selectedItems})=>{
+const Item = ({data,onPress,selected})=>{
 
     const {container,itemText,buttonStyle,buttonText} = styles;
-
-    let selected = selectedItems.find(obj => {
-        return obj.id === data.id
-    });
 
     return (
 

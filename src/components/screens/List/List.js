@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {FlatList, ImageBackground, View} from 'react-native'
+import {FlatList, ImageBackground} from 'react-native'
 import {CategoriItem, ListHeader} from '../../uikit'
 import styles from './styles'
 
@@ -28,12 +27,11 @@ class List extends Component {
 
         const {container} = styles;
         const {data} = this.props.navigation.state.params;
-        const {selectedItems} = this.props;
 
         return (
             <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
 
-                <ListHeader data={data} goBackPress={()=>{this.props.navigation.goBack()}} selectedItems={selectedItems} basketPress={this.basketPress}/>
+                <ListHeader data={data} goBackPress={()=>{this.props.navigation.goBack()}} basketPress={this.basketPress}/>
 
                 <FlatList
                     style={{marginTop: 80,width: '100%'}}
@@ -53,10 +51,4 @@ class List extends Component {
     }
 }
 
-const mapStateToProps = store =>{
-    return {
-        selectedItems:  store.data.selectedItems
-    }
-};
-
-export default connect(mapStateToProps,null)(List)
+export default List

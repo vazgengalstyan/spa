@@ -1,4 +1,4 @@
-export * from './HeaderHome/HeaderHome'
+export HeaderHome from './HeaderHome/HeaderHome'
 export * from './CategoriItem/CategoriItem'
-export * from './ListHeader/ListHeader'
+export ListHeader from './ListHeader/ListHeader'
 export * from './Item/Item'
