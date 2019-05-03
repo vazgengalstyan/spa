@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux'
 import {createStore,applyMiddleware} from 'redux'
-import ReduxThunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
 import reducers from './src/reducers'
 import Main from './src/Main'
+import rootSaga from './src/sagas'
 
-const store = createStore(reducers,applyMiddleware(ReduxThunk))
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(reducers,applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 
 export default class App extends Component{
   render() {
