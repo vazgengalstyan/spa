@@ -4,6 +4,7 @@ import RNFetchBlob from "react-native-fetch-blob"
 import {setDataStore} from '../../../actions'
 import {connect} from 'react-redux'
 import axios from "axios"
+import Dialog from "react-native-dialog"
 import {View, StatusBar, FlatList,ImageBackground, AsyncStorage, Platform, Alert, ActivityIndicator, Text} from 'react-native'
 import {HeaderHome,CategoriItem} from '../../uikit'
 import styles from './styles'
@@ -13,7 +14,10 @@ class Home extends Component {
 
     state = {
         loader: false,
-        dataEmpty: false
+        dataEmpty: false,
+        dialogVisible: false,
+        passwordValid: false,
+        password: ''
     };
 
     async componentDidMount(){
@@ -36,7 +40,7 @@ class Home extends Component {
 
 
     synchronize = async ()=>{
-
+        this.setState({dialogVisible: false,password: '',passwordValid: false});
         NetInfo.isConnected.fetch().then(isOnline=>{
 
             if(isOnline){
@@ -148,11 +152,19 @@ class Home extends Component {
 
     };
 
+    changePassword = (text)=>{
+        if(text === 'spa123123'){
+            this.setState({password: text,passwordValid: true})
+        }else{
+            this.setState({password: text,passwordValid: false})
+        }
+    };
+
     render() {
 
         const {container,emptyDataContainer} = styles;
         const {data} = this.props;
-        const {loader,dataEmpty} = this.state;
+        const {dialogVisible,loader,dataEmpty,password,passwordValid} = this.state;
         return (
             <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
 
@@ -167,12 +179,18 @@ class Home extends Component {
                             'Это может занять несколько минут. Не отключаете интернет.',
                             [
                                 {text: 'ОТМЕНА', onPress: () => {return false}, style: 'cancel'},
-                                {text: 'ОК', onPress: async () => {await this.synchronize();}},
+                                {text: 'ОК', onPress: async () => {this.setState({dialogVisible: true})}},
                             ],
                             { cancelable: false }
                         )
+                }}/>
 
-                    }}/>
+                <Dialog.Container visible={dialogVisible}>
+                    <Dialog.Title>Введите пароль.</Dialog.Title>
+                    <Dialog.Input autoFocus={true} value={password} onChangeText={(text) => {this.changePassword(text)}}/>
+                    <Dialog.Button label="ОТМЕНА" onPress={()=>{this.setState({dialogVisible: false,password: '',passwordValid: false})}}/>
+                    {passwordValid?<Dialog.Button label="ОК" onPress={async ()=>{await this.synchronize()}}/>:null}
+                </Dialog.Container>
 
                 <FlatList
                     style={{marginTop: 80,width: '100%'}}
