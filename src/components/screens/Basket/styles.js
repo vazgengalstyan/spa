@@ -41,13 +41,6 @@ const styles = StyleSheet.create({
         color: 'rgb(0,0,0)',
         fontSize: 30
     },
-    descriptionText: {
-		textAlign: 'center',
-        color: 'rgb(0,0,0)',
-        marginTop: 10,
-        marginHorizontal: 20,
-        fontSize: 24
-    },
     footer: {
         flex: 0.2,
         flexDirection: 'row',
@@ -60,33 +53,37 @@ const styles = StyleSheet.create({
         borderColor: 'rgb(0,0,0)'
     },
     listContainer: {
-        flex: 0.8,
+        flex: 0.6,
         padding: 20
+    },
+    discountContainer: {
+        flex: 0.2,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 30
     },
     itemStyle: {
         padding: 10,
         flexDirection: 'row',
+        justifyContent: 'space-between',
         marginVertical: 10
     },
     itemTextContainer: {
-        flexDirection: 'row',
-        width: '70%',
-        justifyContent: 'space-between',
+        width: '60%',
         paddingHorizontal: 10
     },
     itemText: {
-        textAlign: 'center',
         color: 'rgb(0,0,0)',
-        fontSize: 30
+        fontSize: 20
     },
     itemButtonContainer: {
-        width: '30%',
+        width: '20%',
         justifyContent: 'center',
         alignItems: 'center'
     },
     buttonOk: {
         width: '20%',
-        height: '50%',
+        height: 40,
         backgroundColor: '#c1a75e',
         borderRadius: 20,
         justifyContent: 'center',

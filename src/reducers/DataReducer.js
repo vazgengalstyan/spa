@@ -1,8 +1,9 @@
-import {SET_DATA_IN_STORE,CHECK_ITEM,UNCHECK_ITEM,CLEAR_DATA_SELECT} from '../actionsTypes'
+import {SET_DATA_IN_STORE,CHECK_ITEM,UNCHECK_ITEM,CLEAR_DATA_SELECT,SET_DISCOUNT} from '../actionsTypes'
 
 const INITIAL_STATE = {
     data: [],
-    selectedItems: []
+    selectedItems: [],
+    discount: 0
 };
 
 export default (state = INITIAL_STATE,action)=>{
@@ -31,6 +32,11 @@ export default (state = INITIAL_STATE,action)=>{
             return{
                 ...state,
                 selectedItems: []
+            };
+        case SET_DISCOUNT:
+            return {
+                ...state,
+                discount: action.payload
             };
         default: return state
     }

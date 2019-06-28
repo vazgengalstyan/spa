@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     imageContainer: {
-        width: '30%',
+        width: '15%',
         height: '100%',
         paddingVertical: 80
     },
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
     },
     listContainer: {
-        width: '70%',
+        width: '85%',
         height: '100%',
         justifyContent: 'space-between'
     },
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     descriptionTitle: {
         textAlign: 'center',
         color: 'rgb(0,0,0)',
-        fontSize: 30
+        fontSize: 20
     },
     descriptionText: {
         color: 'rgb(0,0,0)',

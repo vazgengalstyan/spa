@@ -2,3 +2,4 @@ export const  SET_DATA_IN_STORE ='SET_DATA_IN_STORE';
 export const CHECK_ITEM = 'CHECK_ITEM';
 export const UNCHECK_ITEM = 'UNCHECK_ITEM';
 export const CLEAR_DATA_SELECT = 'CLEAR_DATA_SELECT';
+export const SET_DISCOUNT = 'SET_DISCOUNT';

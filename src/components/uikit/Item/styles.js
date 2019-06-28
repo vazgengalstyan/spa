@@ -4,22 +4,19 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         width: '100%',
-        height: 50,
         marginVertical: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         flexDirection: 'row'
     },
     itemText: {
-        width: '30%',
         marginRight: 20,
-        fontSize: 24,
+        fontSize: 20,
         color: 'rgb(0,0,0)'
     },
     buttonStyle: {
         backgroundColor: '#c1a75e',
-        width: '30%',
-        height: '100%',
+        width: '20%',
+        height: 28,
         borderRadius: 20,
         elevation: 5,
         shadowColor: "rgb(0,0,0)",
@@ -34,7 +31,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         textAlign: 'center',
-        fontSize: 24,
+        fontSize: 20,
         color: '#4c3d0c'
     }
 });

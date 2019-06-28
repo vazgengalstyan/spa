@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {unCheckItem,clearDataSelect} from "../../../actions";
+import {unCheckItem,clearDataSelect,setDiscount} from "../../../actions";
 import {View, Image, TouchableOpacity, Alert, Text, ScrollView, ImageBackground} from 'react-native'
 import styles from './styles'
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons'
@@ -22,10 +22,19 @@ class Basket extends Component {
             ` ${totalPrice} руб.`,
             [
                 {text: 'ОТМЕНА', onPress: () => {return false}, style: 'cancel'},
-                {text: 'ОК', onPress: () => {this.props.clearDataSelect();}},
+                {text: 'ОК', onPress: () => {this.props.clearDataSelect(); this.props.setDiscount(0)}},
             ],
             { cancelable: false }
         )
+    };
+
+    setDiscount = (val)=>{
+        const {discount} = this.props;
+        if(discount===val){
+            this.props.setDiscount(0)
+        }else {
+            this.props.setDiscount(val)
+        }
     };
 
     render() {
@@ -36,7 +45,6 @@ class Basket extends Component {
             goBackIconContainer,
             content,
             title,
-            descriptionText,
             footer,
             topBorder,
             listContainer,
@@ -44,10 +52,11 @@ class Basket extends Component {
             itemStyle,
             itemTextContainer,
             itemText,
-            itemButtonContainer
+            itemButtonContainer,
+            discountContainer
         } = styles;
 
-        const {selectedItems} = this.props;
+        const {selectedItems,discount} = this.props;
 
         let totalPrice = 0;
 
@@ -56,6 +65,11 @@ class Basket extends Component {
             totalPrice = totalPrice + (+item.price)
 
         });
+
+        if(discount){
+            let discountPrice = totalPrice/100*discount;
+            totalPrice = totalPrice-discountPrice;
+        }
 
         return (
             <ImageBackground style={container} source={require('../../../images/fon.jpg')}>
@@ -76,11 +90,6 @@ class Basket extends Component {
 
                     <Text style={title}>Карзина</Text>
 
-                    <Text style={descriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam
-                        velit,vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodolectus, ac blandit elit
-                        tincidunt id. Sed rhoncus, tortor sed eleifend tristique,tortor mauris molestie elit, et lacinia
-                        ipsum quam nec dui. Quisque nec</Text>
-
                     <View style={{flex: 1, width: '100%', justifyContent: 'space-between'}}>
 
                         <ScrollView style={listContainer}>
@@ -90,40 +99,44 @@ class Basket extends Component {
                                     <View key={index.toString()} style={itemStyle}>
 
                                         <View style={itemTextContainer}>
-
                                             <Text style={itemText}>{item.name}</Text>
-                                            <Text style={itemText}>{item.price} руб.</Text>
-
                                         </View>
-
+                                        <View style={{width: '20%'}}>
+                                            <Text style={itemText}>{item.price} руб.</Text>
+                                        </View>
                                         <View style={itemButtonContainer}>
-
                                             <TouchableOpacity onPress={() => {
                                                 this.props.unCheckItem(item)
                                             }}>
-
                                                 <MaterialIcons name="close" size={35} color="rgb(254,0,0)"/>
-
                                             </TouchableOpacity>
-
                                         </View>
-
                                     </View>
                                 )
                             }
 
                         </ScrollView>
 
+                        <View style={discountContainer}>
+                            <Text style={title}>Скидка</Text>
+                            <View style={{flexDirection: 'row',justifyContent: 'space-between',width: '100%',paddingHorizontal: 50}}>
+                                <TouchableOpacity style={[buttonOk,discount===10?{backgroundColor: 'rgb(0,0,0)'}:{}]} onPress={()=>{this.setDiscount(10)}}>
+                                    <Text style={[{ fontSize: 22, color: '#4c3d0c'},discount===10?{color: '#d3be7a'}:{}]}>-10%</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[buttonOk,discount===15?{backgroundColor: 'rgb(0,0,0)'}:{}]} onPress={()=>{this.setDiscount(15)}}>
+                                    <Text style={[{ fontSize: 22, color: '#4c3d0c'},discount===15?{color: '#d3be7a'}:{}]}>-15%</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[buttonOk,discount===20?{backgroundColor: 'rgb(0,0,0)'}:{}]} onPress={()=>{this.setDiscount(20)}}>
+                                    <Text style={[{ fontSize: 22, color: '#4c3d0c'},discount===20?{color: '#d3be7a'}:{}]}>-20%</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+
                         <View style={footer}>
-
                             <TouchableOpacity style={buttonOk} onPress={this.clearDataSelect}>
-
                                 <Text style={{ fontSize: 22, color: '#4c3d0c'}}>Ok</Text>
-
                             </TouchableOpacity>
-
                             <Text style={[title, topBorder]}>Общая сумма {totalPrice} руб.</Text>
-
                         </View>
 
                     </View>
@@ -138,8 +151,9 @@ class Basket extends Component {
 
 const mapStateToProps = store =>{
     return {
-        selectedItems:  store.data.selectedItems
+        selectedItems:  store.data.selectedItems,
+        discount: store.data.discount
     }
 };
 
-export default connect(mapStateToProps,{unCheckItem,clearDataSelect})(Basket)
+export default connect(mapStateToProps,{unCheckItem,clearDataSelect,setDiscount})(Basket)

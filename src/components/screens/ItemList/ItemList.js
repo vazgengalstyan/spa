@@ -49,7 +49,7 @@ class ItemList extends Component {
 
                         <View style={imgShadowContainer}>
 
-                            <Image source={require('../../../images/listLogo.jpg')} resizeMode="contain" style={{height: '100%', width: '100%'}}/>
+                            <Image source={require('../../../images/listLogo.jpg')} resizeMode="contain" style={{height: '100%', width: 100}}/>
 
                         </View>
 
